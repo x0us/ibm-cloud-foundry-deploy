@@ -4,10 +4,12 @@ FROM alpine:3.10
 RUN apk add --no-cache bash
 # Installing curl
 RUN apk --no-cache add curl
+COPY * /
 # Copying entrypoint.sh
 COPY entrypoint.sh /entrypoint.sh
 # Updating the permissions
 RUN chmod +x entrypoint.sh
+RUN ls -al
 
 
 ENTRYPOINT ["/entrypoint.sh"]
